@@ -1,0 +1,683 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 142 76% 36%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 142 76% 96%;
+    --accent-foreground: 142 76% 36%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 142 76% 36%;
+
+    --radius: 0.5rem;
+
+    /* Animation durations */
+    --animation-duration-fast: 150ms;
+    --animation-duration-medium: 300ms;
+    --animation-duration-slow: 500ms;
+
+    /* Elevation shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    /* Spacing system */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --primary: 142 76% 36%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 142 76% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: url("/images/environmentalist-background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  /* Modern typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium tracking-tight;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn var(--animation-duration-medium) ease-in-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--animation-duration-medium) ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown var(--animation-duration-medium) ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--animation-duration-medium) ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft var(--animation-duration-medium) ease-out forwards;
+}
+
+.animate-scale {
+  animation: scale var(--animation-duration-fast) ease-out forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 2s infinite;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseSubtle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Modern card styles */
+.card-modern {
+  @apply bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-md transition-all duration-300;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-modern:hover {
+  @apply shadow-lg;
+  transform: translateY(-2px);
+}
+
+.card-glass {
+  @apply bg-white/70 backdrop-blur-md rounded-xl overflow-hidden shadow-md transition-all duration-300;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-glass:hover {
+  @apply bg-white/80;
+}
+
+/* Button animations */
+.btn-modern {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.btn-modern::after {
+  content: "";
+  @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-300;
+}
+
+.btn-modern:hover::after {
+  @apply opacity-10;
+}
+
+.btn-modern:active {
+  transform: scale(0.98);
+}
+
+/* Input field styles */
+.input-modern {
+  @apply bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg px-4 py-2 transition-all duration-300;
+}
+
+.input-modern:focus {
+  @apply border-primary/50 ring-1 ring-primary/30 bg-white/90;
+  box-shadow: 0 0 0 2px rgba(var(--primary), 0.1);
+}
+
+/* Background variations */
+.env-background {
+  background-image: url("/images/environmentalist-background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.env-background-overlay {
+  position: relative;
+}
+
+.env-background-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/images/environmentalist-background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* Leaf pattern background - keep for compatibility */
+.leaf-pattern-bg {
+  background-color: rgba(9, 57, 35, 0.9);
+  background-image: url("/images/environmentalist-background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Auth page specific styles */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  padding: 2rem;
+  margin-top: -2rem;
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  box-shadow: 0 -10px 15px -3px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.auth-input {
+  @apply w-full bg-white border border-gray-200 text-primary placeholder:text-gray-400 focus-visible:ring-1 focus-visible:ring-primary/50;
+}
+
+.auth-button {
+  @apply w-full bg-primary hover:bg-primary/90 text-white font-medium py-2.5 rounded-md transition-colors;
+}
+
+.auth-link {
+  @apply text-primary hover:text-primary/80 text-sm font-medium transition-colors;
+}
+
+.auth-social-button {
+  @apply flex items-center justify-center w-12 h-12 rounded-full border border-gray-300 hover:bg-gray-50 transition-colors;
+}
+
+/* Success screen styles */
+.success-container {
+  @apply min-h-screen env-background flex flex-col;
+}
+
+.success-content {
+  @apply flex-1 flex flex-col items-center justify-center text-white p-6 text-center;
+}
+
+.success-circle {
+  @apply w-32 h-32 rounded-full bg-white flex items-center justify-center mb-6;
+}
+
+.success-actions {
+  @apply mt-8 w-full max-w-xs;
+}
+
+/* Bottom navigation */
+.bottom-nav {
+  @apply fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm border-t border-gray-200 flex justify-around items-center py-2 z-50;
+}
+
+.bottom-nav-item {
+  @apply flex flex-col items-center p-2;
+}
+
+.bottom-nav-item.active {
+  @apply text-primary;
+}
+
+.bottom-nav-item:not(.active) {
+  @apply text-gray-500;
+}
+
+.bottom-nav-label {
+  @apply text-xs mt-1;
+}
+
+/* Card styles */
+.feature-card {
+  @apply bg-primary/90 backdrop-blur-sm text-white rounded-xl overflow-hidden;
+}
+
+.post-card {
+  @apply bg-white/95 backdrop-blur-sm rounded-xl p-4 mb-4;
+}
+
+.activity-card {
+  @apply bg-white/95 backdrop-blur-sm rounded-xl overflow-hidden;
+}
+
+/* Button styles */
+.primary-button {
+  @apply bg-primary text-white py-3 px-6 rounded-full font-medium w-full;
+}
+
+.outline-button {
+  @apply border-2 border-white text-white py-3 px-6 rounded-full font-medium w-full;
+}
+
+.secondary-button {
+  @apply bg-white text-primary py-3 px-6 rounded-full font-medium w-full;
+}
+
+/* Content container with background */
+.content-container {
+  @apply bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-md;
+}
+
+/* Logo styles for consistent display */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  object-fit: contain;
+  height: auto;
+  width: auto;
+}
+
+/* For dark backgrounds */
+.logo-white {
+  filter: brightness(0) invert(1);
+}
+
+/* For light backgrounds */
+.logo-green {
+  filter: brightness(0) saturate(100%) invert(13%) sepia(51%) saturate(1066%) hue-rotate(118deg) brightness(94%)
+    contrast(101%);
+}
+
+/* Hide scrollbars but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Touch-friendly improvements */
+@media (pointer: coarse) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  button,
+  a {
+    @apply touch-target;
+  }
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  .auth-form-container {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -4rem;
+    border-radius: 2rem;
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .auth-container {
+    padding: 2rem;
+  }
+
+  .auth-form-container {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo-text {
+    font-size: 0.875rem;
+  }
+
+  /* Improve tap targets on mobile */
+  .card-actions button,
+  .card-actions a {
+    @apply py-2 px-3;
+  }
+}
+
+/* Performance optimizations for background */
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .env-background,
+  .env-background-overlay::before,
+  .leaf-pattern-bg {
+    background-attachment: scroll;
+  }
+
+  /* Disable animations for users who prefer reduced motion */
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Low data mode */
+@media (prefers-reduced-data: reduce) {
+  body,
+  .env-background,
+  .env-background-overlay::before,
+  .leaf-pattern-bg {
+    background-image: none;
+    background-color: #093923;
+  }
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 200ms, transform 200ms;
+}
+
+/* Loading animations */
+.loading-skeleton {
+  @apply bg-gray-200 animate-pulse rounded;
+}
+
+.loading-dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: currentColor;
+  color: currentColor;
+  box-shadow: 9999px 0 0 -4px;
+  animation: dot-pulse 1.5s infinite linear;
+  animation-delay: 0.25s;
+}
+
+.loading-dot-pulse::before,
+.loading-dot-pulse::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: currentColor;
+  color: currentColor;
+}
+
+.loading-dot-pulse::before {
+  box-shadow: 9984px 0 0 -4px;
+  animation: dot-pulse-before 1.5s infinite linear;
+  animation-delay: 0s;
+}
+
+.loading-dot-pulse::after {
+  box-shadow: 10014px 0 0 -4px;
+  animation: dot-pulse-after 1.5s infinite linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes dot-pulse-before {
+  0% {
+    box-shadow: 9984px 0 0 -4px;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -4px;
+  }
+}
+
+@keyframes dot-pulse {
+  0% {
+    box-shadow: 9999px 0 0 -4px;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -4px;
+  }
+}
+
+@keyframes dot-pulse-after {
+  0% {
+    box-shadow: 10014px 0 0 -4px;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -4px;
+  }
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(var(--primary), 0.3);
+}
+
+/* Focus styles */
+.focus-ring {
+  @apply outline-none ring-offset-2 transition-all duration-200;
+}
+
+.focus-ring:focus-visible {
+  @apply ring-2 ring-primary/50;
+}
