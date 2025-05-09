@@ -37,4 +37,3 @@ Backend services may occasionally throttle depending on traffic or resource usag
 Optional – Local Testing
 If you'd like to clone and run the project locally, you can do so from my GitHub repository (linked below). This ensures better performance and more control:
 
-GitHub: [Insert GitHub Repo URL here]
