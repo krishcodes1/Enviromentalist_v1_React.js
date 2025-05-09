@@ -30,7 +30,7 @@ Animations and Transitions: Smooth but not instant—be patient if content is sl
 
 Known Limitations
 
-No premium features such as real-time syncing or custom domains are currently enabled.
+No premium features such as real-time syncing may be avalaible  or custom domains are currently enabled.
 
 Backend services may occasionally throttle depending on traffic or resource usage.
 
